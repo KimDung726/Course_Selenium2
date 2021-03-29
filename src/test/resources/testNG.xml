@@ -6,13 +6,13 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
     <test name="ChromeTest">
-        <parameter name="browser" value="Chrome"/>
+        <parameter name="browser" value="CHROME"/>
         <classes>
             <class name="test.DemoTest"/>
         </classes>
     </test>
     <test name="FirefoxTest">
-        <parameter name="browser" value="Firefox"/>
+        <parameter name="browser" value="FIREFOX"/>
         <classes>
             <class name="test.DemoTest"/>
         </classes>

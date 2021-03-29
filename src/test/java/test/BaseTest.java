@@ -1,30 +1,35 @@
 package test;
 
+
+import driver.DriverFactory;
+import driver.DriverManager;
+import utilities.*;
 import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterMethod;
 
-import utilities.Log;
-import utilities.Constants;
-import helper.DriverHelper;
+import static org.openqa.selenium.remote.BrowserType.CHROME;
 
 public class BaseTest {
 
     private String strTestResult;
 
+    private DriverManager driverManager = null;
+
     @BeforeMethod
     @Parameters("browser")
-    public void startBrowser(String browser) {
+    public void setupTest(String browser) {
         Constants.BROWSER = browser;
-        DriverHelper.startBrowser(DriverHelper.convertStringToEnum(Constants.BROWSER));
-        DriverHelper.navigateToUrl(Constants.BASE_URL);
+        driverManager = DriverFactory.valueOf(Constants.BROWSER).getDriverManager();
+        driverManager.getDriver();
+        driverManager.navigateToUrl(Constants.BASE_URL);
     }
 
     @AfterMethod
-    public void quitDriver(ITestResult result) {
+    public void cleanupTest(ITestResult result) {
         printTestResult(result);
-        DriverHelper.quitWebDriver();
+        driverManager.quitDriver();
     }
 
     /***
