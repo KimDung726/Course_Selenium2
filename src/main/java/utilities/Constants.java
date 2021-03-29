@@ -1,5 +1,7 @@
 package utilities;
 
+import org.openqa.selenium.WebDriver;
+
 public class Constants {
 
     public static String BASE_URL = "https://www.google.com/";

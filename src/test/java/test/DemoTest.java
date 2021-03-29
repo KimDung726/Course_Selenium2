@@ -13,7 +13,7 @@ public class DemoTest extends BaseTest {
 
     @BeforeMethod
     public void setupPageObject() {
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(getDriver());
     }
 
     @Test(testName = "Demo_001", description = "Search")
