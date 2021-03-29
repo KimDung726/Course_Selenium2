@@ -1,5 +1,6 @@
 package objects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +20,7 @@ public class LoginPage extends BasePage {
      * Search by keyword
      * @param strContent : String
      */
+    @Step("Search")
     public void search(String strContent) {
         enterData(_inputTxt, strContent);
         clickOnElement(_searchBtn);

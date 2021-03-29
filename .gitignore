@@ -109,6 +109,9 @@ fabric.properties
 # Log file
 *.log
 
+# allure-results file
+allure-results/
+
 # BlueJ files
 *.ctxt
 
